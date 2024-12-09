@@ -1,0 +1,17 @@
+{
+  "name": "maximo-autoscript",
+  "version": "1.0.0",
+  "description": "This is a repo aiming to create tools to automatically maintain and deploy Maximo automation scripts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.8",
+    "dotenv": "^16.4.5",
+    "ibm_db": "^3.2.5",
+    "minimist": "^1.2.8"
+  }
+}

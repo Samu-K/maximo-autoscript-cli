@@ -1,0 +1,37 @@
+When LaunchPointType object:
+    Init val - 1
+
+    Save / Add / Before - 2
+    Save / Update / Before - 4
+    Save / A+U / Before - 6
+    Save / Delete / Before - 8
+    Save / A+D / Before - 10
+    Save / U+D / Before - 12
+    Save / A+U+D / Before - 14
+
+    Save / Add / After - 16
+    Save / Update / After - 32
+    Save / A+U / After - 48
+    Save / Delete / After - 64
+    Save / A+D / After - 80
+    Save / U+D / After - 96
+    Save / A+U+D / After - 112
+
+    Save / Add / Commit - 128
+    Save / Update / Commit - 256
+    Save / A+U / Commit - 384
+    Save / Delete / Commit - 512
+    Save / A+D / Commit - 640
+    Save / U+D / Commit - 768
+    Save / A+U+D / Commit - 896
+
+    Validate - 1024
+    Allow obj creation - 2048
+    Allow obj delete - 4096
+
+When type attribute:
+    Validate - 0
+    Run action - 1
+    Init - 2
+    Acces restrict - 8
+    Retrieve - 64

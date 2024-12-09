@@ -1,0 +1,9 @@
+{
+  "scriptDir": "./scripts",
+  "database": "dbName",
+  "hostname": "ip",
+  "uid": "username",
+  "pwd": "password",
+  "port": "port",
+  "protocol": "protocol"
+}
