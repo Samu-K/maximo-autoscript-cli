@@ -7,6 +7,7 @@
 const deploy = require('./deploy.js');
 const fetch = require('./fetch.js');
 const utils = require('./utils.js');
+const path = require('path');
 
 // Set DB2 codepage to UTF-8
 process.env.DB2CODEPAGE = "1208";
@@ -15,13 +16,22 @@ const argv = require('minimist')(process.argv.slice(2));
 
 async function main() {
     const appConfig = utils.readConfig();
-    const scriptFolderPath = appConfig['scriptDir'];
     global.CONNSTR = appConfig['connstr'];
 
+    console.log(argv['runDir']);
     const args = utils.handleCliArgs(argv);
     if (args === undefined) {
         process.exit(0);
     }
+
+    let scriptFolderPath = "";
+    // check if folder location is custom
+    if(appConfig['dirLocation'] !== 'relative') {
+        scriptFolderPath = path.join(appConfig['dirLocation'], appConfig['scriptDir']);
+    } else {
+        scriptFolderPath = path.join(args.runDir, appConfig['scriptDir']);
+    }
+
     global.VERBOSE_ = args.verbose;
     global.DRYRUN_ = args.dryRun;
 

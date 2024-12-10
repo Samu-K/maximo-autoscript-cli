@@ -43,16 +43,19 @@ function handleCliArgs(argv) {
         process.exit(1);
     }
 
-    if(argv._[0] === 'list') {
-        return {};
-    }
-
     const silent = argv.s ?? argv.silent ?? false;
     let verbose;
     if (silent) {verbose = 0;} else {
         verbose = argv.v ?? argv.verbose ?? 1;
     }
     args.verbose = verbose;
+    args.runDir = argv['runDir'];
+    args.dryRun = argv['dry-run'] ?? false;
+    args.write = argv.f ?? argv.force ?? false;
+
+    if (argv._[0] === 'list') {
+        return args;
+    }
     const autoscriptName = argv.script;
     const allScripts = argv.all || argv.a;
     if (allScripts) {
@@ -64,8 +67,6 @@ function handleCliArgs(argv) {
         }
         args.script = autoscriptName.toUpperCase();
     }
-    args.dryRun = argv['dry-run'] ?? false;
-    args.write = argv.f ?? argv.force ?? false;
 
     return args;
 }
@@ -117,6 +118,11 @@ function readConfig() {
         console.error('scriptDir not found in config file');
         process.exit(1);
     }
+    if(config['dirLocation'] === undefined) {
+        console.error('dirLocation not found in config file');
+        process.exit(1);
+    }
+
     // construct connection string inplace
     config = constructConnStr(config);
     return config;

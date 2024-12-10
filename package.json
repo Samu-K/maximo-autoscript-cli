@@ -2,9 +2,12 @@
   "name": "maximo-autoscript",
   "version": "1.0.0",
   "description": "This is a repo aiming to create tools to automatically maintain and deploy Maximo automation scripts.",
-  "main": "index.js",
+  "main": "src/funcs/manageAs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "manageAs": "./src/funcs/manageAs.js"
   },
   "author": "",
   "license": "ISC",
