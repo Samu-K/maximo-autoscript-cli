@@ -1,5 +1,6 @@
 {
   "scriptDir": "./scripts",
+  "dirLocation": "relative",
   "database": "dbName",
   "hostname": "ip",
   "uid": "username",
